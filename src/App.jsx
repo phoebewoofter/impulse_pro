@@ -52,7 +52,7 @@ function App() {
     const params = new URLSearchParams({
       client_id: "56de6914b0ff425b91c22549a95629e5",
       response_type: "code",
-      redirect_uri: "https://vite.dev/config/",
+      redirect_uri: "https://impulsepro.netlify.app/",
       code_challenge_method: "S256",
       code_challenge: challenge,
     });
