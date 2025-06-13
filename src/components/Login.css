@@ -4,12 +4,11 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 html, body {
   width: 100%;
   height: 100%;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  overflow: hidden; /* Prevent scrollbars due to animations */
+  overflow: hidden; /* Prevents scrollbars due to animations */
 }
 
 /* Drifting Gradient Background */
@@ -25,7 +24,7 @@ html, body {
   animation: driftColors 30s ease infinite;
 }
 
-/* Gradient Animation Keyframes */
+/* Gradient Animation */
 @keyframes driftColors {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -47,7 +46,7 @@ html, body {
   z-index: -1;
 }
 
-/* Cloud Drifting Animation */
+/* Clouds Drifting Animation */
 @keyframes driftClouds {
   0% { transform: translate(0, 0); }
   50% { transform: translate(50px, 20px); }
@@ -59,25 +58,31 @@ html, body {
   margin-bottom: 2rem;
   text-align: center;
 }
-
 .logo {
-  width: 400px; /* Adjust based on your desired display */
+  width: 400px;
   max-width: 90%;
+  display: block;
+  margin: 0 auto;
 }
 
-/* Player Section */
+/* Player Section (Cassette with overlaid Log In button) */
 .player {
+  position: relative; /* Enables absolute positioning for inner elements */
   text-align: center;
 }
-
 .cassette {
-  width: 250px; /* Adjust as needed */
-  max-width: 80%;
-  margin-bottom: 20px;
+  width: 350px; /* Increased size */
+  max-width: 90%;
+  display: block;
+  margin: 0 auto;
 }
 
-/* Interactive Login Button */
+/* Login Button positioned over the cassette image */
 .login-button {
+  position: absolute;
+  top: 60%; /* Adjust this value to align with where "Log In" originally was on the cassette */
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 1.2rem;
   background: linear-gradient(45deg, #f8c7ff, #874ed6);
   border: none;
@@ -90,6 +95,7 @@ html, body {
 }
 
 .login-button:hover {
-  transform: scale(1.1);
+  transform: translate(-50%, -50%) scale(1.1);
   box-shadow: 0 0 25px rgba(255, 179, 255, 0.9);
 }
+

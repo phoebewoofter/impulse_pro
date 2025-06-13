@@ -1,17 +1,17 @@
 import React from "react";
 import "./Login.css";
-import logo from "../assets/logo.png";       // This should be your soundwaves & title combined
-import cassette from "../assets/cassette.png"; // This should include the cassette with headphones
+import logo from "../assets/logo.png";       // Contains sound waves and title
+import cassette from "../assets/cassette.png"; // Contains cassette and headphones
 
 const Login = ({ getAccessToken }) => {
   return (
     <div className="login-container">
-      {/* Header – Logo Image */}
+      {/* Header – Logo Image (sound waves and title) */}
       <div className="header">
         <img src={logo} alt="Logo" className="logo" />
       </div>
 
-      {/* Player – Cassette Image & Login Button */}
+      {/* Player – Cassette Image with overlaid Login Button */}
       <div className="player">
         <img src={cassette} alt="Cassette with Headphones" className="cassette" />
         <button className="login-button" onClick={getAccessToken}>
@@ -23,3 +23,4 @@ const Login = ({ getAccessToken }) => {
 };
 
 export default Login;
+
