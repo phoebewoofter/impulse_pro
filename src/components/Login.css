@@ -1,92 +1,151 @@
-/* src/components/Login.css */
+/* Define your color palette */
+:root {
+  --accent-light: #f8c7ff;
+  --accent-mid: #d398fa;
+  --accent-dark: #874ed6;
+  --background1: #ffd1dc;
+  --background2: #e1bee7;
+  --text-light: #ffffff;
+  --text-dark: #4a148c;
+}
+
+/* Reset and base styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  overflow: hidden; /* Prevents unwanted scrollbars due to animations */
+}
+
+/* The login container uses a drifting gradient as its background */
 .login-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: #f0f0f0;
+  background: linear-gradient(135deg, var(--background1), var(--background2));
+  background-size: 400% 400%;
+  animation: driftColors 30s ease infinite;
 }
 
-.header-animation {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.header-animation .soundwaves {
-  width: 100%;
-  height: 20px;
-  background: linear-gradient(90deg, #ff6a00, #ee0979);
-  animation: wave 2s infinite;
-}
-
-@keyframes wave {
+/* Animate the gradient so it drifts slowly like clouds */
+@keyframes driftColors {
   0% {
-    transform: scaleX(0.5);
+    background-position: 0% 50%;
   }
   50% {
-    transform: scaleX(1);
+    background-position: 100% 50%;
   }
   100% {
-    transform: scaleX(0.5);
+    background-position: 0% 50%;
   }
+}
+
+/* Create a cloud-like overlay using a pseudo-element */
+.login-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Two radial gradients simulate soft, diffused clouds */
+  background: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.2), transparent 70%),
+              radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.15), transparent 70%);
+  opacity: 0.8;
+  animation: driftClouds 60s linear infinite;
+  z-index: -1;
+}
+
+/* Animate the pseudo-element to drift ever so slightly */
+@keyframes driftClouds {
+  0% {
+    transform: translateX(0px) translateY(0px);
+  }
+  50% {
+    transform: translateX(50px) translateY(20px);
+  }
+  100% {
+    transform: translateX(0px) translateY(0px);
+  }
+}
+
+/* Optional: Light/dark mode modifications */
+body.light-mode .login-container {
+  filter: brightness(1.1);
+}
+
+body.dark-mode .login-container {
+  filter: brightness(0.9);
+}
+
+/* Header and title styling */
+.header-animation {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-light);
+  text-shadow: 0 0 10px var(--accent-dark);
 }
 
 .app-title {
-  font-size: 3em;
-  color: #333;
-  margin-top: 10px;
+  font-family: 'Pacifico', cursive;
+  font-size: 3rem;
+  letter-spacing: 2px;
 }
 
+/* Cassette player and dynamic login button styling */
 .cassette-player {
-  width: 300px;
-  height: 200px;
-  background: #ccc;
-  perspective: 1000px;
   position: relative;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
 }
 
 .tape {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-bottom: 1rem;
 }
 
+/* Dynamic, animated login button */
 .play-button {
-  background: #ff6a00;
+  font-size: 1.2rem;
+  background: linear-gradient(45deg, var(--accent-light), var(--accent-dark));
   border: none;
-  color: white;
-  padding: 10px 20px;
-  font-size: 1.2em;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  color: var(--text-light);
   cursor: pointer;
-  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(255, 179, 255, 0.6);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
+.play-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(255, 179, 255, 0.9);
+}
+
+/* Headphones and extra styling */
 .headphones {
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
-  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
 .headphone-left,
 .headphone-right {
-  width: 50px;
-  height: 50px;
-  background: #666;
+  width: 60px;
+  height: 60px;
+  background: var(--accent-mid);
   border-radius: 50%;
-  margin: 0 5px;
+  position: relative;
 }
 
 .cord {
   width: 100px;
-  height: 2px;
-  background: #444;
-  border-radius: 2px;
-  margin-top: 10px;
+  height: 10px;
+  background: var(--accent-dark);
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 50px);
 }
