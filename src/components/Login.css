@@ -71,7 +71,7 @@ html, body {
   text-align: center;
 }
 .cassette {
-  width: 350px; /* Increased size */
+  width: 50vw; /* Increased size */
   max-width: 90%;
   display: block;
   margin: 0 auto;
