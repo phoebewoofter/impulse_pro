@@ -1,25 +1,22 @@
-// src/components/Login.js
 import React from "react";
 import "./Login.css";
+import logo from "../assets/logo.png";       // This should be your soundwaves & title combined
+import cassette from "../assets/cassette.png"; // This should include the cassette with headphones
 
 const Login = ({ getAccessToken }) => {
   return (
     <div className="login-container">
-      <div className="header-animation">
-        <div className="soundwaves"></div>
-        <h1 className="app-title">Impulse</h1>
+      {/* Header – Logo Image */}
+      <div className="header">
+        <img src={logo} alt="Logo" className="logo" />
       </div>
-      <div className="cassette-player">
-        <div className="tape">
-          <button className="play-button" onClick={getAccessToken}>
-            Log in
-          </button>
-        </div>
-        <div className="headphones">
-          <div className="headphone-left"></div>
-          <div className="headphone-right"></div>
-          <div className="cord"></div>
-        </div>
+
+      {/* Player – Cassette Image & Login Button */}
+      <div className="player">
+        <img src={cassette} alt="Cassette with Headphones" className="cassette" />
+        <button className="login-button" onClick={getAccessToken}>
+          Log In
+        </button>
       </div>
     </div>
   );
