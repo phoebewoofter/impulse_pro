@@ -1,4 +1,17 @@
-/* Define your color palette */
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  overflow: hidden; /* Prevents scrollbars from animations */
+}
+
+/* Color Palette */
 :root {
   --accent-light: #f8c7ff;
   --accent-mid: #d398fa;
@@ -9,15 +22,7 @@
   --text-dark: #4a148c;
 }
 
-/* Reset and base styles */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  overflow: hidden; /* Prevents unwanted scrollbars due to animations */
-}
-
-/* The login container uses a drifting gradient as its background */
+/* Drifting Gradient Background */
 .login-container {
   position: relative;
   display: flex;
@@ -30,20 +35,14 @@ body {
   animation: driftColors 30s ease infinite;
 }
 
-/* Animate the gradient so it drifts slowly like clouds */
+/* Gradient animation keyframes */
 @keyframes driftColors {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* Create a cloud-like overlay using a pseudo-element */
+/* Cloud-like Overlay */
 .login-container::before {
   content: "";
   position: absolute;
@@ -51,7 +50,6 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  /* Two radial gradients simulate soft, diffused clouds */
   background: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.2), transparent 70%),
               radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.15), transparent 70%);
   opacity: 0.8;
@@ -59,29 +57,14 @@ body {
   z-index: -1;
 }
 
-/* Animate the pseudo-element to drift ever so slightly */
+/* Clouds drifting animation */
 @keyframes driftClouds {
-  0% {
-    transform: translateX(0px) translateY(0px);
-  }
-  50% {
-    transform: translateX(50px) translateY(20px);
-  }
-  100% {
-    transform: translateX(0px) translateY(0px);
-  }
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(50px, 20px); }
+  100% { transform: translate(0, 0); }
 }
 
-/* Optional: Light/dark mode modifications */
-body.light-mode .login-container {
-  filter: brightness(1.1);
-}
-
-body.dark-mode .login-container {
-  filter: brightness(0.9);
-}
-
-/* Header and title styling */
+/* Header Styling */
 .header-animation {
   text-align: center;
   margin-bottom: 2rem;
@@ -95,17 +78,23 @@ body.dark-mode .login-container {
   letter-spacing: 2px;
 }
 
-/* Cassette player and dynamic login button styling */
+/* Cassette Player Container */
 .cassette-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
-  padding: 2rem;
 }
 
+/* Tape area with play button */
 .tape {
-  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  margin-bottom: 2rem;
 }
 
-/* Dynamic, animated login button */
 .play-button {
   font-size: 1.2rem;
   background: linear-gradient(45deg, var(--accent-light), var(--accent-dark));
@@ -123,29 +112,33 @@ body.dark-mode .login-container {
   box-shadow: 0 0 25px rgba(255, 179, 255, 0.9);
 }
 
-/* Headphones and extra styling */
+/* Headphones Layout */
 .headphones {
+  position: relative;
+  width: 220px; /* Adjust width to space out headphone cups */
   display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
+  justify-content: space-between;
+  align-items: center;
 }
 
+/* Headphone Ear Cups */
 .headphone-left,
 .headphone-right {
   width: 60px;
   height: 60px;
   background: var(--accent-mid);
   border-radius: 50%;
-  position: relative;
+  border: 4px solid rgba(255, 255, 255, 0.7);
 }
 
+/* Curved Cord Connecting Headphones */
 .cord {
-  width: 100px;
-  height: 10px;
-  background: var(--accent-dark);
-  border-radius: 5px;
   position: absolute;
   top: 50%;
-  left: calc(50% - 50px);
+  left: 0;
+  width: 100%;
+  height: 20px;
+  border-top: 3px solid var(--accent-dark);
+  border-radius: 50%;
+  pointer-events: none;
 }
