@@ -30,7 +30,7 @@ function App() {
           client_id: "56de6914b0ff425b91c22549a95629e5",
           grant_type: "authorization_code",
           code: code,
-          redirect_uri: "https://teal-speculoos-73ccce.netlify.app/",
+          redirect_uri: "https://impulsepro.netlify.app/",
           code_verifier: storedVerifier,
         }),
       })
