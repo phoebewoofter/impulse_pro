@@ -11,7 +11,7 @@ html, body {
   overflow: hidden; /* Prevents scrollbars due to animations */
 }
 
-/* Drifting Gradient Background */
+/* Drifting Gradient Background with Revised Colors */
 .login-container {
   position: relative;
   height: 100vh;
@@ -19,9 +19,10 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #ffd1dc, #e1bee7);
-  background-size: 400% 400%;
-  animation: driftColors 30s ease infinite;
+  /* New pastel gradient based on the cassette image’s palette */
+  background: linear-gradient(135deg, #FFCAD4, #F3C4FB, #BDE0FE);
+  background-size: 600% 600%;
+  animation: driftColors 15s ease infinite;
 }
 
 /* Gradient Animation */
@@ -68,11 +69,15 @@ html, body {
 /* Player Section (Cassette with overlaid Log In button) */
 .player {
   position: relative; /* Enables absolute positioning for inner elements */
+  width: 100%;
+  max-width: 600px; /* Keeps the cassette from growing too large */
   text-align: center;
+  overflow: visible; /* Ensures the entire image, including the cord, stays visible */
 }
 .cassette {
-  width: 50vw; /* Increased size */
-  max-width: 90%;
+  width: 80vw; /* Responsive sizing */
+  max-width: 100%;
+  height: auto; /* Maintains aspect ratio */
   display: block;
   margin: 0 auto;
 }
@@ -80,11 +85,12 @@ html, body {
 /* Login Button positioned over the cassette image */
 .login-button {
   position: absolute;
-  top: 60%; /* Adjust this value to align with where "Log In" originally was on the cassette */
+  top: 53%; /* Adjust this value to perfectly center on the light pink stripe */
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 1.2rem;
-  background: linear-gradient(45deg, #f8c7ff, #874ed6);
+  /* New button gradient to match the cassette’s pastel hues */
+  background: linear-gradient(45deg, #F8A5C2, #A29BFE);
   border: none;
   padding: 0.8rem 2rem;
   border-radius: 30px;
@@ -99,3 +105,11 @@ html, body {
   box-shadow: 0 0 25px rgba(255, 179, 255, 0.9);
 }
 
+/* Media Query Adjustments for Smaller Screens */
+@media (max-width: 600px) {
+  .login-button {
+    top: 55%;      /* Fine-tuned for smaller displays */
+    font-size: 1rem;
+    padding: 0.7rem 1.8rem;
+  }
+}
