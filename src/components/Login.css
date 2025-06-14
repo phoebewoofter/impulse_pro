@@ -71,8 +71,8 @@ html, body {
 /* Login Button positioned over the cassette image */
 .login-button {
   position: absolute;
-  top: 53%; /* Adjust this value to perfectly center on the light pink stripe */
-  left: 50%;
+  top: 0%; /* Adjust this value to perfectly center on the light pink stripe */
+  left: 49%;
   transform: translate(-50%, -50%);
   font-size: 1.2rem;
   /* New button gradient to match the cassette’s pastel hues */
