@@ -18,8 +18,8 @@
   }
 
   .playlist button {
-    padding: 10px 20px;
-    font-size: 1em;
+    padding: 5px 10px;
+    font-size: .5em;
     margin-left: 10px;
     cursor: pointer;
     background: linear-gradient(45deg, #F8A5C2, #A29BFE);

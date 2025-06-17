@@ -1,8 +1,12 @@
 /* Main app container: reserve space for header and allow vertical scrolling */
 .app { 
   position: relative; /* Ensures elements position correctly */ 
-  width: 100vw; 
+  min-height: 100vh; 
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: visible;
   height: auto;
+  padding-top: 100px;
 }
 
 /* Amorphous gradient background fixed to the viewport */
@@ -81,6 +85,9 @@
 .results-and-playlist {
   display: flex;
   gap: 2rem;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  align-items: flex-start;
   padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
