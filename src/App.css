@@ -2,7 +2,6 @@
   position: relative; /* Ensures elements position correctly */
   width: 100vw;
   height: 100vh;
-  overflow: hidden; /* Prevents unwanted scrolling */
 }
 
 .amorphous-gradient {
@@ -58,7 +57,13 @@
   box-shadow: 0 0 15px rgba(255, 179, 255, 0.6);
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
+
 .logout-button:hover {
   transform: scale(1.1);
   box-shadow: 0 0 25px rgba(255, 179, 255, 0.9);
+}
+
+.results-and-playlist {
+  display: flex;
+  gap: 2rem;
 }

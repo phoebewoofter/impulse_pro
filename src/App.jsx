@@ -3,6 +3,7 @@ import Login from "./components/Login";
 import SearchBar from "./components/SearchBar";
 import SearchResults from "./components/SearchResults";
 import Playlist from "./components/Playlist";
+import logo from "./assets/logo.png";
 import "./App.css";
 import { getCodeChallenge, generateRandomString } from "./utils/pkce";
 
@@ -175,7 +176,7 @@ function App() {
     <div className="app">
       <div className="amorphous-gradient"></div>
      <header className="header-container">
-      <img src="./assets/logo.png" alt="Logo" className="logo" />
+      <img src={logo} alt="Logo" className="logo" />
       <button className="logout-button" onClick={handleLogout}>Log Out</button>
     </header>
       <SearchBar
@@ -183,19 +184,22 @@ function App() {
         setUserInput={setUserInput}
         handleSubmit={handleSubmit}
       />
-      <SearchResults
-        results={results}
-        onToggleTrack={handleToggleTrackInPlaylist}
-        isTrackInPlaylist={isTrackInPlaylist}
-      />
-      <Playlist
-        playlist={playlist}
-        playlistName={playlistName}
-        handlePlaylistNameChange={handlePlaylistNameChange}
-        handleCreatePlaylist={handleCreatePlaylist}
-        onToggleTrack={handleToggleTrackInPlaylist}
-        isTrackInPlaylist={isTrackInPlaylist}
-      />
+      <div className="results-and-playlist">
+        <SearchResults
+          results={results}
+          onToggleTrack={handleToggleTrackInPlaylist}
+          isTrackInPlaylist={isTrackInPlaylist}
+        />
+        <Playlist
+          playlist={playlist}
+          playlistName={playlistName}
+          handlePlaylistNameChange={handlePlaylistNameChange}
+          handleCreatePlaylist={handleCreatePlaylist}
+          onToggleTrack={handleToggleTrackInPlaylist}
+          isTrackInPlaylist={isTrackInPlaylist}
+        />
+      </div>
+
     </div>
   );
 }

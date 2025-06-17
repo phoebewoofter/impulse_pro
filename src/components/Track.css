@@ -32,6 +32,15 @@
   
   .track button {
     padding: 5px 10px;
+    font-size: .5em;
+    margin-left: 10px;
     cursor: pointer;
+    background: linear-gradient(45deg, #F8A5C2, #A29BFE);
+    border-radius: 5px;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(255, 179, 255, 0.6);
+    transition: transform 0.2s ease, box-shadow 0.3s ease
   }
   

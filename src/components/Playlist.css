@@ -1,7 +1,14 @@
 /* src/components/Playlist.css */
 .playlist {
-    margin: 20px;
-  }
+  margin: 20px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.21);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
   
   .playlist input {
     width: 80%;
@@ -9,4 +16,17 @@
     margin-bottom: 10px;
     font-size: 1em;
   }
-  
+
+  .playlist button {
+    padding: 10px 20px;
+    font-size: 1em;
+    margin-left: 10px;
+    cursor: pointer;
+    background: linear-gradient(45deg, #F8A5C2, #A29BFE);
+    border-radius: 5px;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(255, 179, 255, 0.6);
+    transition: transform 0.2s ease, box-shadow 0.3s ease
+  }
