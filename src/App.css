@@ -63,8 +63,8 @@
 /* Logout button appears on the right */
 .logout-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 30px;
+  right: 30px;
   font-size: 1.2rem;
   background: linear-gradient(45deg, #F8A5C2, #A29BFE);
   padding: 0.5rem 1rem;
