@@ -1,12 +1,17 @@
+/* app container */
 .app {
-  position: relative; /* Ensures elements position correctly */
+  position: relative; /* Establishes a local positioning context */
   width: 100vw;
   min-height: 100vh;
   overflow: auto;
+  background-color: #000; /* Optional fallback/background color */
 }
 
+/* Background gradient now fixed behind everything */
 .amorphous-gradient {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   background: 
@@ -15,7 +20,7 @@
   animation: pulse 10s ease-in-out infinite;
   filter: blur(60px) brightness(0.9);
   mix-blend-mode: screen;
-  z-index: -1; /* Keeps it behind everything */
+  z-index: -1; /* Places it behind all content */
   opacity: 0.8;
 }
 
@@ -30,30 +35,26 @@
   }
 }
 
-/* Header Section (Logo + Logout Button) */
+/* Header section is now in the normal flow */
 .header-container {
-  position: relative;
-  top: 10px;
-  right: 10px;
+  position: relative; /* Removed absolute positioning */
   display: flex;
+  justify-content: space-between; /* Align logo left and logout button right */
   align-items: center;
-  gap: 15px; /* Spaces out elements */
+  padding: 10px;
+  gap: 15px;
+  z-index: 1; /* Makes sure header layers above the gradient */
 }
 
-/* Logo in top-right */
+/* Logo is now naturally placed within the header */
 .logo {
   width: 120px;
   height: auto;
-  position: absolute;
-  top: 10px;
-  left: 10px;
+  /* Removed absolute positioning so it contributes to height */
 }
 
-/* Logout Button */
+/* Logout Button in normal flow */
 .logout-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
   font-size: 1.2rem;
   background: linear-gradient(45deg, #F8A5C2, #A29BFE);
   padding: 0.5rem 1rem;
@@ -65,12 +66,16 @@
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
+/* Button hover state */
 .logout-button:hover {
   transform: scale(1.1);
   box-shadow: 0 0 25px rgba(255, 179, 255, 0.9);
 }
 
+/* Content area for search results and playlist */
 .results-and-playlist {
   display: flex;
   gap: 2rem;
+  flex-wrap: wrap; /* Allow wrapping if needed */
+  padding: 20px; /* Adds space around content */
 }
