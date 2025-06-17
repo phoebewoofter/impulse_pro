@@ -1,28 +1,25 @@
 /* Main app container: reserve space for header and allow vertical scrolling */
-.app {
-  position: relative;
-  width: 100vw;
-  min-height: 100vh;
-  overflow-y: auto;
-  background-color: #000; /* Optional fallback */
-  padding-top: 70px; /* Space for the fixed header */
+.app { 
+  position: relative; /* Ensures elements position correctly */ 
+  width: 100vw; 
+  height: auto;
 }
 
 /* Amorphous gradient background fixed to the viewport */
 .amorphous-gradient {
-  position: fixed; /* Fixed so it covers the viewport even when scrolling */
+  position: fixed; /* Cover entire viewport */
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: 
-    linear-gradient(120deg, #F3C4FB 0%, #FFCAD4 30%, rgba(255, 179, 255, 0.9) 60%, #BDE0FE 100%),
-    linear-gradient(140deg, #A29BFE 10%, rgba(255, 179, 255, 0.6) 40%, #F8A5C2 90%);
+  background: linear-gradient(120deg, #F3C4FB 0%, #FFCAD4 30%, rgba(255, 179, 255, 0.9) 60%, #BDE0FE 100%),
+              linear-gradient(140deg, #A29BFE 10%, rgba(255, 179, 255, 0.6) 40%, #F8A5C2 90%);
   animation: pulse 10s ease-in-out infinite;
   filter: blur(60px) brightness(0.9);
   mix-blend-mode: screen;
-  z-index: -1; /* Behind all content */
+  z-index: -1;
   opacity: 0.8;
+  pointer-events: none; /* Avoid interaction blocking */
 }
 
 @keyframes pulse {
@@ -38,9 +35,9 @@
 
 /* Fixed header ensures logo and logout button remain visible */
 .header-container {
-  position: fixed; /* Fixed at top */
-  top: 0;
-  left: 0;
+  position: absolute; /* Fixed at top */
+  top: 10px;
+  left: 10px;
   width: 100%;
   display: flex;
   justify-content: space-between; /* Logo left, logout right */
@@ -78,6 +75,6 @@
 .results-and-playlist {
   display: flex;
   gap: 2rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   padding: 20px;
 }
