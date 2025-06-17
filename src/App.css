@@ -1,2 +1,65 @@
+.app {
+  position: relative; /* Ensures elements position correctly */
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; /* Prevents unwanted scrolling */
+}
 
+.amorphous-gradient {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: 
+    linear-gradient(120deg, #F3C4FB 0%, #FFCAD4 30%, rgba(255, 179, 255, 0.9) 60%, #BDE0FE 100%),
+    linear-gradient(140deg, #A29BFE 10%, rgba(255, 179, 255, 0.6) 40%, #F8A5C2 90%);
+  animation: pulse 10s ease-in-out infinite;
+  filter: blur(60px) brightness(0.9);
+  mix-blend-mode: screen;
+  z-index: -1; /* Keeps it behind everything */
+  opacity: 0.8;
+}
 
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: blur(60px) brightness(0.9);
+  }
+  50% {
+    transform: scale(1.05);
+    filter: blur(80px) brightness(1.05);
+  }
+}
+
+/* Header Section (Logo + Logout Button) */
+.header-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Spaces out elements */
+}
+
+/* Logo in top-right */
+.logo {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Logout Button */
+.logout-button {
+  font-size: 1.2rem;
+  background: linear-gradient(45deg, #F8A5C2, #A29BFE);
+  border: 0.2vw solid purple;
+  padding: 0.5rem 5.7rem;
+  border-radius: 10px;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 179, 255, 0.6);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+.logout-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(255, 179, 255, 0.9);
+}

@@ -45,57 +45,58 @@ html, body {
   margin-bottom: 2rem;
   text-align: center;
 }
+
 .logo {
-  width: 400px;
-  max-width: 90%;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
   display: block;
-  margin: 0 auto;
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  z-index: 1;
+  object-fit: contain;
+  clip-path: inset(33% 0 0 0); /* Crops the top third */
 }
 
-/* Player Section (Cassette with overlaid Log In button) */
-.player {
-  position: relative; /* Enables absolute positioning for inner elements */
-  width: 100%;
-  max-width: 600px; /* Keeps the cassette from growing too large */
-  text-align: center;
-  overflow: visible; /* Ensures the entire image, including the cord, stays visible */
-}
 .cassette {
-  width: 80vw; /* Responsive sizing */
-  max-width: 100%;
-  height: auto; /* Maintains aspect ratio */
+  width: 100%;
+  max-width: 600px;
+  height: auto;
   display: block;
   margin: 0 auto;
+  position: relative;
+  z-index: 2; /* Higher than logo */
 }
+
+.player {
+  position: relative;
+  width: 90vw; /* Keeps assets within viewport */
+  max-width: 600px;
+  text-align: center;
+  overflow: hidden; /* Prevents drifting beyond the screen */
+}
+
 
 /* Login Button positioned over the cassette image */
 .login-button {
   position: absolute;
-  top: 0%; /* Adjust this value to perfectly center on the light pink stripe */
-  left: 49%;
+  top: 48%; /* Adjust based on cassette's proportions */
+  left: 49%; /* Keeps button centered */
   transform: translate(-50%, -50%);
-  font-size: 1.2rem;
-  /* New button gradient to match the cassette’s pastel hues */
+  font-size: 2vw; /* Scales dynamically */
+  padding: clamp(.4rem, 1vh, .5rem) clamp(2rem, 6vw, 5rem);
   background: linear-gradient(45deg, #F8A5C2, #A29BFE);
   border: none;
-  padding: 0.8rem 2rem;
-  border-radius: 30px;
+  border-radius: 1vw;
   color: #ffffff;
   cursor: pointer;
-  box-shadow: 0 0 15px rgba(255, 179, 255, 0.6);
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  z-index: 3;
 }
+
+
 
 .login-button:hover {
   transform: translate(-50%, -50%) scale(1.1);
   box-shadow: 0 0 25px rgba(255, 179, 255, 0.9);
-}
-
-/* Media Query Adjustments for Smaller Screens */
-@media (max-width: 600px) {
-  .login-button {
-    top: 55%;      /* Fine-tuned for smaller displays */
-    font-size: 1rem;
-    padding: 0.7rem 1.8rem;
-  }
 }

@@ -173,10 +173,11 @@ function App() {
 
   return (
     <div className="app">
-      <header>
-        <h1>Impulse</h1>
-        <button onClick={handleLogout}>Log Out</button>
-      </header>
+      <div className="amorphous-gradient"></div>
+     <header className="header-container">
+      <img src={logo} alt="Logo" className="logo" />
+      <button className="logout-button" onClick={handleLogout}>Log Out</button>
+    </header>
       <SearchBar
         userInput={userInput}
         setUserInput={setUserInput}
