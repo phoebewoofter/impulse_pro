@@ -1,7 +1,8 @@
 .app {
   position: relative; /* Ensures elements position correctly */
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  overflow: auto;
 }
 
 .amorphous-gradient {
@@ -43,16 +44,22 @@
 .logo {
   width: 120px;
   height: auto;
-  object-fit: contain;
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 
 /* Logout Button */
 .logout-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   font-size: 1.2rem;
   background: linear-gradient(45deg, #F8A5C2, #A29BFE);
   padding: 0.5rem 1rem;
   border-radius: 10px;
   color: #ffffff;
+  border: none;
   cursor: pointer;
   box-shadow: 0 0 15px rgba(255, 179, 255, 0.6);
   transition: transform 0.2s ease, box-shadow 0.3s ease;
