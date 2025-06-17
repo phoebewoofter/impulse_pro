@@ -175,7 +175,7 @@ function App() {
     <div className="app">
       <div className="amorphous-gradient"></div>
      <header className="header-container">
-      <img src="../assets/logo.png" alt="Logo" className="logo" />
+      <img src="./assets/logo.png" alt="Logo" className="logo" />
       <button className="logout-button" onClick={handleLogout}>Log Out</button>
     </header>
       <SearchBar

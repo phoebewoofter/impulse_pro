@@ -51,8 +51,7 @@
 .logout-button {
   font-size: 1.2rem;
   background: linear-gradient(45deg, #F8A5C2, #A29BFE);
-  border: 0.2vw solid purple;
-  padding: 0.5rem 5.7rem;
+  padding: 0.5rem 1rem;
   border-radius: 10px;
   color: #ffffff;
   cursor: pointer;
