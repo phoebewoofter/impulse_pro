@@ -173,9 +173,9 @@ function App() {
   }
 
   return (
-    <>
-    <div className="amorphous-gradient"></div>
+
     <div className="app">
+    <div className="amorphous-gradient"></div>
      <header className="header-container">
       <img src={logo} alt="Logo" className="logo" />
       <button className="logout-button" onClick={handleLogout}>Log Out</button>
@@ -202,7 +202,6 @@ function App() {
       </div>
 
     </div>
-    </>
   );
 }
 
