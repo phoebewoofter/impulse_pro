@@ -47,8 +47,7 @@ html, body {
 }
 
 .logo {
-  width: 100%;
-  max-width: 300px;
+  width: 300px;
   height: auto;
   display: block;
   position: absolute;
