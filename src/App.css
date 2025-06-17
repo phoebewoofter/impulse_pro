@@ -1,15 +1,16 @@
-/* app container */
+/* Main app container: reserve space for header and allow vertical scrolling */
 .app {
-  position: relative; /* Establishes a local positioning context */
+  position: relative;
   width: 100vw;
   min-height: 100vh;
-  overflow: auto;
-  background-color: #000; /* Optional fallback/background color */
+  overflow-y: auto;
+  background-color: #000; /* Optional fallback */
+  padding-top: 70px; /* Space for the fixed header */
 }
 
-/* Background gradient now fixed behind everything */
+/* Amorphous gradient background fixed to the viewport */
 .amorphous-gradient {
-  position: absolute;
+  position: fixed; /* Fixed so it covers the viewport even when scrolling */
   top: 0;
   left: 0;
   width: 100vw;
@@ -20,7 +21,7 @@
   animation: pulse 10s ease-in-out infinite;
   filter: blur(60px) brightness(0.9);
   mix-blend-mode: screen;
-  z-index: -1; /* Places it behind all content */
+  z-index: -1; /* Behind all content */
   opacity: 0.8;
 }
 
@@ -35,25 +36,27 @@
   }
 }
 
-/* Header section is now in the normal flow */
+/* Fixed header ensures logo and logout button remain visible */
 .header-container {
-  position: relative; /* Removed absolute positioning */
+  position: fixed; /* Fixed at top */
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
-  justify-content: space-between; /* Align logo left and logout button right */
+  justify-content: space-between; /* Logo left, logout right */
   align-items: center;
-  padding: 10px;
-  gap: 15px;
-  z-index: 1; /* Makes sure header layers above the gradient */
+  padding: 10px 20px;
+  z-index: 10; /* Above gradient background */
+  background: transparent; /* Transparent so the gradient shows through */
 }
 
-/* Logo is now naturally placed within the header */
+/* Logo remains on the left */
 .logo {
   width: 120px;
   height: auto;
-  /* Removed absolute positioning so it contributes to height */
 }
 
-/* Logout Button in normal flow */
+/* Logout button appears on the right */
 .logout-button {
   font-size: 1.2rem;
   background: linear-gradient(45deg, #F8A5C2, #A29BFE);
@@ -66,16 +69,15 @@
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
-/* Button hover state */
 .logout-button:hover {
   transform: scale(1.1);
   box-shadow: 0 0 25px rgba(255, 179, 255, 0.9);
 }
 
-/* Content area for search results and playlist */
+/* Container for content below the header */
 .results-and-playlist {
   display: flex;
   gap: 2rem;
-  flex-wrap: wrap; /* Allow wrapping if needed */
-  padding: 20px; /* Adds space around content */
+  flex-wrap: wrap;
+  padding: 20px;
 }
