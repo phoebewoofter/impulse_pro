@@ -1,12 +1,47 @@
-# React + Vite
+# IMPULSE 🎧
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Impulse is a `React` project developed by Phoebe Woofter, an aspiring developer and current Codecademy student. The application prompts users log in to Spotify so they can search for music in the Spotify library, listen to track previews, create personalized playlists, and save them to their Spotify account.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Alt text](./impulse.jpeg)
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📝 &nbsp; Note
+Impulse is currently in development mode with the Spotify API. 
+
+
+
+
+
+## 🔗 &nbsp; Link
+https://impulsepro.netlify.app/
+
+
+
+
+## 🎤 &nbsp; Features
+*Authentication:* Users can log in to Spotify.\
+*Search:* Users can search for songs through the Spotify Web API.\
+*Playlist Creation and Management:* Users can create their own playlists, name them, and add or remove tracks. They can also upload those playlists to Spotify.\
+*Audio Preview:* Users can view information about tracks and albums while listening to an audio preview.
+
+
+
+## 🛠️ &nbsp; Installation
+```git clone https://github.com/phoebewoofter/pulse.git```\
+```npm install```\
+```npm start```
+
+
+
+
+## 💻 &nbsp; Technologies
+<img style="text-align: right;" src="https://skillicons.dev/icons?i=html,css,js,react,vscode,git,github&perline=7">
+
+
+
+
+## 👤 &nbsp; Contact
+LinkedIn\
+Phoebe Woofter\
+phoebewoofter@gmail.com
