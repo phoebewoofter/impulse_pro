@@ -144,7 +144,7 @@ function App() {
         },
         body: JSON.stringify({
           name: playlistName,
-          public: true,
+          public: false,
         }),
       }
     );
