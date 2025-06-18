@@ -2,8 +2,7 @@
 
 Impulse is a `React` project developed by Phoebe Woofter, an aspiring developer and current Codecademy student. The application prompts users log in to Spotify so they can search for music in the Spotify library, listen to track previews, create personalized playlists, and save them to their Spotify account.
 
-
-![Alt text](./impulse.jpeg)
+![impulse](https://github.com/user-attachments/assets/69bd5984-904c-4dc7-ae41-7d8392a939a0)
 
 
 ## 📝 &nbsp; Note
