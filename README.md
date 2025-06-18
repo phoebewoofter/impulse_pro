@@ -21,7 +21,7 @@ https://impulsepro.netlify.app/
 ## 🎤 &nbsp; Features
 *Authentication:* Users can log in to Spotify.\
 *Search:* Users can search for songs through the Spotify Web API.\
-*Playlist Creation and Management:* Users can create their own playlists, name them, and add or remove tracks. They can also upload those playlists to Spotify.\
+*Playlist Creation and Management:* Users can create their own playlists, name them, and add or remove tracks. They can also upload those playlists to Spotify.
 
 
 
