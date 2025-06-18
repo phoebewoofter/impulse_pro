@@ -33,6 +33,7 @@ function App() {
           code: code,
           redirect_uri: "https://impulsepro.netlify.app/",
           code_verifier: storedVerifier,
+          scope: "playlist-modify-private playlist-modify-public"
         }),
       })
         .then((response) => response.json())
