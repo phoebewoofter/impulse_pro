@@ -121,11 +121,18 @@ function App() {
   const handleCreatePlaylist = async () => {
     if (!playlistName || playlist.length === 0) return;
     // First, get the current user’s Spotify profile.
+    try {
     const userResponse = await fetch("https://api.spotify.com/v1/me", {
       headers: { Authorization: `Bearer ${token}` },
     });
+    if (!userResponse.ok) {
+      console.error("Error fetching user data:", userResponse.statusText);
+      return alert("Error fetching user data. Please check your token.");
+    }
+
     const userData = await userResponse.json();
     const userId = userData.id;
+
     // Create a new playlist.
     const playlistResponse = await fetch(
       `https://api.spotify.com/v1/users/${userId}/playlists`,
@@ -141,11 +148,27 @@ function App() {
         }),
       }
     );
+    if (!playlistResponse.ok) {
+      console.error("Error creating playlist:", playlistResponse.statusText);
+      return alert("Error creating playlist.");
+    }
     const playlistData = await playlistResponse.json();
     const playlistId = playlistData.id;
+
+    if (!playlistId) {
+      console.error("Playlist creation failed:", playlistData);
+      return alert("Error: Playlist ID missing.");
+    }
     // Add tracks to the newly created playlist.
-    const uris = playlist.map((track) => `spotify:track:${track.id}`);
-    const addTracksResponse = await fetch(
+    const uris = playlist.map((track) => {
+      if (!track.id) {
+        console.warn("Track missing id:", track);
+      } 
+      return `spotify:track:${track.id}`;
+
+    });
+
+    const tracksResponse = await fetch(
       `https://api.spotify.com/v1/playlists/${playlistId}/tracks`,
       {
         method: "POST",
@@ -153,15 +176,21 @@ function App() {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          uris: uris,
-        }),
+        body: JSON.stringify({ uris }),
       }
     );
+    if (!tracksResponse.ok) {
+      console.error("Error adding tracks:", tracksResponse.statusText);
+      return alert("Error adding tracks to the playlist.");
+    }
     // Reset the playlist and name.
     setPlaylist([]);
     setPlaylistName("");
     alert("Playlist uploaded successfully!");
+  } catch (error) {
+    console.log("Unexpected error:", error);
+    alert("An unexpected error occurred. Check the console for details.");
+  }
   };
 
   // --- Log out ---

@@ -27,7 +27,7 @@ const Playlist = ({
         isTrackInPlaylist={isTrackInPlaylist}
       />
       {playlistName && playlist.length > 0 && (
-        <button onClick={() => handleCreatePlaylist}>
+        <button onClick={handleCreatePlaylist}>
           Upload Playlist to Spotify
         </button>
       )}
