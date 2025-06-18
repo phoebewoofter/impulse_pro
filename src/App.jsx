@@ -33,7 +33,6 @@ function App() {
           code: code,
           redirect_uri: "https://impulsepro.netlify.app/",
           code_verifier: storedVerifier,
-          scope: "playlist-modify-private playlist-modify-public"
         }),
       })
         .then((response) => response.json())
@@ -57,6 +56,7 @@ function App() {
       redirect_uri: "https://impulsepro.netlify.app/",
       code_challenge_method: "S256",
       code_challenge: challenge,
+      scope: "playlist-modify-private playlist-modify-public",
     });
     window.location = `https://accounts.spotify.com/authorize?${params.toString()}`;
   };
