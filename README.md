@@ -34,7 +34,7 @@ https://impulsepro.netlify.app/
 
 
 ## 💻 &nbsp; Technologies
-<img style="text-align: right;" src="https://skillicons.dev/icons?i=html,css,js,react,vscode,git,github&perline=7">
+<img style="text-align: right;" src="https://skillicons.dev/icons?i=html,css,js,react,vscode,git,github,storybook&perline=7">
 
 
 
