@@ -125,9 +125,10 @@ function App() {
       headers: { Authorization: `Bearer ${token}` },
     });
     const userData = await userResponse.json();
+    const userId = userData.id;
     // Create a new playlist.
     const playlistResponse = await fetch(
-      `https://api.spotify.com/v1/users/${userData.id}/playlists`,
+      `https://api.spotify.com/v1/users/${userId}/playlists`,
       {
         method: "POST",
         headers: {
@@ -136,15 +137,16 @@ function App() {
         },
         body: JSON.stringify({
           name: playlistName,
-          public: false,
+          public: true,
         }),
       }
     );
     const playlistData = await playlistResponse.json();
+    const playlistId = playlistData.id;
     // Add tracks to the newly created playlist.
     const uris = playlist.map((track) => `spotify:track:${track.id}`);
-    await fetch(
-      `https://api.spotify.com/v1/playlists/${playlistData.id}/tracks`,
+    const addTracksResponse = await fetch(
+      `https://api.spotify.com/v1/playlists/${playlistId}/tracks`,
       {
         method: "POST",
         headers: {
